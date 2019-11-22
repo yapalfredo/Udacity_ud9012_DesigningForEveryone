@@ -23,7 +23,7 @@ class AddGdgFragment : Fragment() {
         val binding = AddGdgFragmentBinding.inflate(inflater)
 
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
 
@@ -35,6 +35,8 @@ class AddGdgFragment : Fragment() {
                     Snackbar.LENGTH_SHORT // How long to display the message.
                 ).show()
                 viewModel.doneShowingSnackbar()
+                binding.button.contentDescription=getString(R.string.submitted)
+                binding.button.text=getString(R.string.done)
             }
         })
 
