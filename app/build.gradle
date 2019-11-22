@@ -34,6 +34,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -47,6 +48,10 @@ android {
 }
 
 dependencies {
+    implementation 'com.android.support:multidex:1.0.3'
+
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$version_kotlin"
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // Kotlin
@@ -58,7 +63,7 @@ dependencies {
     // ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle_extensions"
     // Use viewModelScope from lifecycle-viewmodel-ktx
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-alpha03"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc02"
 
     // Navigation
     implementation "android.arch.navigation:navigation-fragment-ktx:$version_navigation"
